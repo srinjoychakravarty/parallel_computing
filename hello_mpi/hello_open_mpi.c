@@ -10,7 +10,7 @@ int main(int argument_count, char *argument_values[])
     int number_of_tasks, task_identifier, length;
 
     // call mpi function to discover hostname
-    char host_name[MESSAGE_PASSING_INTERFACE_PROCESSOR_NAME];
+    char host_name[MPI_MAX_PROCESSOR_NAME];
 
     // init MPI
     MPI_Init(&argument_count, &argument_values);
