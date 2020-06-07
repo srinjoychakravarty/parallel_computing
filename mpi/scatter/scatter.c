@@ -44,7 +44,7 @@ int main(int argument_count, char *argument_values[])
         MPI_Scatter(send_buffer, send_count, MPI_FLOAT, received_buffer, received_count, MPI_FLOAT, src, MPI_COMM_WORLD);
 
         // prints out the buffer received by each sub task
-        printf("subtask rank: %d\n result buffers: %f\n %f\n %f\n %f\n", current_rank, received_buffer[0], received_buffer[1], received_buffer[2], received_buffer[3]);
+        printf("subtask rank: %d\n processor buffer => %f | %f | %f | %f\n", current_rank, received_buffer[0], received_buffer[1], received_buffer[2], received_buffer[3]);
     }
 
     else
