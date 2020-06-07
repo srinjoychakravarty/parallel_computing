@@ -11,7 +11,7 @@ int main(int argument_count, char *argument_values[])
     int num_of_tasks, current_rank, send_count, received_count, src;
 
     // initialize 4x4 matrix to send source computation
-    float send_buffer[][] =
+    float send_buffer[SIZE][SIZE] =
     {
         {0.5, 4.1, 1.5, 3.4},
         {2.5, 5.9, 6.5, 7.0},
