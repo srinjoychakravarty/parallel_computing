@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH --job-name=scatter_slurm_srinjoy
-#SBATCH --output=scatter_result_slurm_srinjoy.out
-#SBATCH --error=scatter_error_slurm_srinjoy.err
+#SBATCH --job-name=scatter_slurm
+#SBATCH --output=scatter_result.out
+#SBATCH --error=scatter_fault.err
 #SBATCH --partition express
 #SBATCH --nodes=1
 #SBATCH --time=0:05:00
