@@ -1,5 +1,6 @@
 // Performs a scatter operation on the rows of an array
 
+#include "mpi.h"
 #include <stdio.h>
 #include <stdlib.h>
 #define SIZE 4
