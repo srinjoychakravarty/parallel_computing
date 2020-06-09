@@ -1,7 +1,8 @@
-import os, csv
+import csv, glob, os
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
+from pyexcel.cookbook import merge_all_to_a_book
 
 mpl.use('Agg')
 os.chdir("..")
@@ -13,7 +14,7 @@ runtimes_dict = {}
 for filename in os.listdir(directory):
 	if (filename.endswith('matrix.out')):
 		matrix_files.append(filename) 
-print(runtimes_dict)
+
 for filename in matrix_files:
 	if(filename == "result_serial_matrix.out"):
 		open_file = open(directory + "/" + filename, 'r')
@@ -23,7 +24,7 @@ for filename in matrix_files:
 		x_values = [1, 2, 4, 8, 12]
 		y_values = [int(millisecs), int(millisecs), int(millisecs), int(millisecs), int(millisecs)]
 		runtimes_dict['serial'] = (x_values, y_values)
-		print(runtimes_dict)
+
 	if(filename == "result_open_mp_matrix.out"):
 		open_file = open(directory + "/" + filename, 'r')
 		lines = open_file.readlines()
@@ -40,7 +41,7 @@ for filename in matrix_files:
 		x_values = [1, 2, 4, 8, 12]
 		y_values = [int(millisecs_1), int(millisecs_2), int(millisecs_3), int(millisecs_4), int(millisecs_5)]
 		runtimes_dict['open_mp'] = (x_values, y_values)
-		print(runtimes_dict)
+
 	if(filename == "result_mpi_matrix.out"):
 		open_file = open(directory + "/" + filename, 'r')
 		lines = open_file.readlines()
@@ -55,7 +56,6 @@ for filename in matrix_files:
 		x_values = [2, 4, 8, 12]
 		y_values = [int(millisecs_1), int(millisecs_2), int(millisecs_3), int(millisecs_4)]
 		runtimes_dict['mpi'] = (x_values, y_values)
-		print(runtimes_dict)
 
 red_patch = mpatches.Patch(color = 'red', label = 'Serial C Code')
 green_patch = mpatches.Patch(color = 'green', label = 'OpenMP Shared Memory Threads')
@@ -69,7 +69,22 @@ os.chdir("..")
 os.chdir("python")
 plt.savefig('runtimes_plot.png')
 
-with open('output.csv', 'wb') as output:
-    writer = csv.writer(output)
-    for key, value in runtimes_dict.iteritems():
-        writer.writerow([key, value])
+column_headers = ['Technology','NumCores', 'Runtime']
+csv_list = []
+for each_key in list(runtimes_dict.keys()):
+	rows_per_type = len(runtimes_dict.get(each_key)[0])
+	for i in range(rows_per_type):
+		temp_dict = {column_headers[0]: each_key, column_headers[1]: runtimes_dict.get(each_key)[0][i], column_headers[2]: runtimes_dict.get(each_key)[1][i]}
+		csv_list.append(temp_dict)
+
+currentPath = os.getcwd()
+csv_file = currentPath + "/runtimes.csv"
+
+with open(csv_file, 'w') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames = column_headers)
+        writer.writeheader()
+        for data in csv_list:
+            writer.writerow(data)
+merge_all_to_a_book(glob.glob(csv_file), "parallel_runtimes.xlsx")
+
+os.remove(csv_file) 
