@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#SBATCH --job-name=hello_open_mp
+#SBATCH --output=hello_open_mp_result.out
+#SBATCH --error=hello_open_mp_fault.err
+#SBATCH --partition express
+#SBATCH --nodes=1
+#SBATCH --time=0:05:00
+
+cd /home/chakravarty.s/csye7374-chakravarty.s/homework1/parallel_computing/openmp/
+srun --pty /bin/bash
+gcc -o hello_open_mp -fopenmp hello_open_mp.c
+./hello_open_mp
