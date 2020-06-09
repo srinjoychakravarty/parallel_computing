@@ -14,3 +14,5 @@ mpicc -o matrix_mpi matrix_multiplication_mpi.c
 mpirun --mca btl_base_warn_component_unused 0 -np 2 -oversubscribe matrix_mpi
 mpirun --mca btl_base_warn_component_unused 0 -np 4 -oversubscribe matrix_mpi
 mpirun --mca btl_base_warn_component_unused 0 -np 8 -oversubscribe matrix_mpi
+mpirun --mca btl_base_warn_component_unused 0 -np 12 -oversubscribe matrix_mpi
+

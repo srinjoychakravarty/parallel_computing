@@ -1,2 +1,6 @@
 srun: error: ioctl(TIOCGWINSZ): Inappropriate ioctl for device
 srun: error: Not using a pseudo-terminal, disregarding --pty option
+Traceback (most recent call last):
+  File "parallel_plot.py", line 74, in <module>
+    for key, value in runtimes_dict.iteritems():
+AttributeError: 'dict' object has no attribute 'iteritems'

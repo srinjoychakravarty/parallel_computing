@@ -52,10 +52,8 @@ for filename in matrix_files:
 		millisecs_3 = wall_time_3.split()[0]
 		wall_time_4 = lines[7]
 		millisecs_4 = wall_time_4.split()[0]
-		wall_time_5 = lines[9]
-		millisecs_5 = wall_time_5.split()[0]
-		x_values = [1, 2, 4, 8, 12]
-		y_values = [int(millisecs_1), int(millisecs_2), int(millisecs_3), int(millisecs_4), int(millisecs_5)]
+		x_values = [2, 4, 8, 12]
+		y_values = [int(millisecs_1), int(millisecs_2), int(millisecs_3), int(millisecs_4)]
 		runtimes_dict['mpi'] = (x_values, y_values)
 		print(runtimes_dict)
 

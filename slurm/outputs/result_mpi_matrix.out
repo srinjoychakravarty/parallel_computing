@@ -1,10 +1,8 @@
-mpi_mm has started with 1 task.
-1200 milliseconds elapsed
 mpi_mm has started with 2 tasks.
-1091 milliseconds elapsed
+1000 milliseconds elapsed
 mpi_mm has started with 4 tasks.
-767 milliseconds elapsed
+689 milliseconds elapsed
 mpi_mm has started with 8 tasks.
-680 milliseconds elapsed
+618 milliseconds elapsed
 mpi_mm has started with 12 tasks.
-500 milliseconds elapsed
+611 milliseconds elapsed
