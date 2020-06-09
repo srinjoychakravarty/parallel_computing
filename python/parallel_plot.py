@@ -1,4 +1,4 @@
-import os
+import os, csv
 import matplotlib as mpl
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
@@ -20,8 +20,8 @@ for filename in matrix_files:
 		lines = open_file.readlines()
 		wall_time = lines[5]
 		millisecs = wall_time.split()[0]
-		x_values = [int(2), int(4), int(8)]
-		y_values = [millisecs, millisecs, millisecs]
+		x_values = [1, 2, 4, 8, 12]
+		y_values = [int(millisecs), int(millisecs), int(millisecs), int(millisecs), int(millisecs)]
 		runtimes_dict['serial'] = (x_values, y_values)
 		print(runtimes_dict)
 	if(filename == "result_open_mp_matrix.out"):
@@ -33,8 +33,12 @@ for filename in matrix_files:
 		millisecs_2 = wall_time_2.split()[0]
 		wall_time_3 = lines[5]
 		millisecs_3 = wall_time_3.split()[0]
-		x_values = [int(2), int(4), int(8)]
-		y_values = [millisecs_1, millisecs_2, millisecs_3]
+		wall_time_4 = lines[7]
+		millisecs_4 = wall_time_4.split()[0]
+		wall_time_5 = lines[9]
+		millisecs_5 = wall_time_5.split()[0]
+		x_values = [1, 2, 4, 8, 12]
+		y_values = [int(millisecs_1), int(millisecs_2), int(millisecs_3), int(millisecs_4), int(millisecs_5)]
 		runtimes_dict['open_mp'] = (x_values, y_values)
 		print(runtimes_dict)
 	if(filename == "result_mpi_matrix.out"):
@@ -46,8 +50,12 @@ for filename in matrix_files:
 		millisecs_2 = wall_time_2.split()[0]
 		wall_time_3 = lines[5]
 		millisecs_3 = wall_time_3.split()[0]
-		x_values = [int(2), int(4), int(8)]
-		y_values = [millisecs_1, millisecs_2, millisecs_3]
+		wall_time_4 = lines[7]
+		millisecs_4 = wall_time_4.split()[0]
+		wall_time_5 = lines[9]
+		millisecs_5 = wall_time_5.split()[0]
+		x_values = [1, 2, 4, 8, 12]
+		y_values = [int(millisecs_1), int(millisecs_2), int(millisecs_3), int(millisecs_4), int(millisecs_5)]
 		runtimes_dict['mpi'] = (x_values, y_values)
 		print(runtimes_dict)
 
@@ -63,3 +71,7 @@ os.chdir("..")
 os.chdir("python")
 plt.savefig('runtimes_plot.png')
 
+with open('output.csv', 'wb') as output:
+    writer = csv.writer(output)
+    for key, value in runtimes_dict.iteritems():
+        writer.writerow([key, value])
