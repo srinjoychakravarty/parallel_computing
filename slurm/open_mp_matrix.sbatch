@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#SBATCH --job-name=open_mp_matrix
+#SBATCH --output=open_mp_matrix_result.out
+#SBATCH --error=open_mp_matrix_fault.err
+#SBATCH --partition express
+#SBATCH --nodes=1
+#SBATCH --time=0:05:00
+
+cd /home/chakravarty.s/csye7374-chakravarty.s/homework1/parallel_computing/matrix
+srun --pty /bin/bash
+gcc -o matrix_open_mp -fopenmp matrix_multiplication_omp.c
+export OMP_NUM_THREADS=2
+./matrix_open_mp
+export OMP_NUM_THREADS=4
+./matrix_open_mp
+export OMP_NUM_THREADS=8
+./matrix_open_mp

@@ -1,7 +1,10 @@
 #!/bin/bash
 
-sbatch scatter.sbatch
-sbatch hello_mpi.sbatch
+# sbatch scatter.sbatch
+# sbatch hello_mpi.sbatch
+# sbatch serial_matrix.sbatch
+# sbatch open_mp_matrix.sbatch
+sbatch mpi_matrix.sbatch
 
 while true
 do
