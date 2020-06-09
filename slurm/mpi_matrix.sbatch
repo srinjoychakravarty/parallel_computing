@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #SBATCH --job-name=mpi_matrix
-#SBATCH --output=/home/chakravarty.s/csye7374-chakravarty.s/homework1/parallel_computing/slurm/outputs/mpi_matrix_result.out
-#SBATCH --error=/home/chakravarty.s/csye7374-chakravarty.s/homework1/parallel_computing/slurm/errors/mpi_matrix_fault.err
+#SBATCH --output=/home/chakravarty.s/csye7374-chakravarty.s/homework1/parallel_computing/slurm/outputs/result_mpi_matrix.out
+#SBATCH --error=/home/chakravarty.s/csye7374-chakravarty.s/homework1/parallel_computing/slurm/errors/fault_mpi_matrix.err
 #SBATCH --partition express
 #SBATCH --nodes=1
 #SBATCH --time=0:05:00

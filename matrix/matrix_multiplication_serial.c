@@ -50,7 +50,7 @@ for(i=0;i<NRA;i++)
    // for (j=0; j<NCB; j++)
       // printf("%6.2f   ", c[i][j]);
    // }
-printf ("\nDone.\n");
+printf ("Done.\n");
 gettimeofday(&timecheck, NULL);
 end = (long)timecheck.tv_sec * 1000 + (long)timecheck.tv_usec / 1000;
 printf("%ld milliseconds elapsed\n", (end - start));

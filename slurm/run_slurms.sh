@@ -6,6 +6,7 @@ sbatch scatter.sbatch
 sbatch serial_matrix.sbatch
 sbatch open_mp_matrix.sbatch
 sbatch mpi_matrix.sbatch
+# sbatch python3.sbatch
 
 while true
 do
