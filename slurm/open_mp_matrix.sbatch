@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #SBATCH --job-name=open_mp_matrix
-#SBATCH --output=open_mp_matrix_result.out
-#SBATCH --error=open_mp_matrix_fault.err
+#SBATCH --output=/home/chakravarty.s/csye7374-chakravarty.s/homework1/parallel_computing/slurm/outputs/open_mp_matrix_result.out
+#SBATCH --error=/home/chakravarty.s/csye7374-chakravarty.s/homework1/parallel_computing/slurm/errors/open_mp_matrix_fault.err
 #SBATCH --partition express
 #SBATCH --nodes=1
 #SBATCH --time=0:05:00

@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #SBATCH --job-name=hello_mpi_slurm
-#SBATCH --output=hello_mpi_result.out
-#SBATCH --error=hello_mpi_fault.err
+#SBATCH --output=/home/chakravarty.s/csye7374-chakravarty.s/homework1/parallel_computing/slurm/outputs/hello_mpi_result.out
+#SBATCH --error=/home/chakravarty.s/csye7374-chakravarty.s/homework1/parallel_computing/slurm/errors/hello_mpi_fault.err
 #SBATCH --partition express
 #SBATCH --nodes=1
 #SBATCH --time=0:05:00
