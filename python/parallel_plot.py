@@ -1,7 +1,9 @@
 import os
+import matplotlib as mpl
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
+mpl.use('Agg')
 os.chdir("..")
 os.chdir("slurm/outputs")
 directory = os.getcwd()
@@ -11,7 +13,7 @@ runtimes_dict = {}
 for filename in os.listdir(directory):
 	if (filename.endswith('matrix.out')):
 		matrix_files.append(filename) 
-
+print(runtimes_dict)
 for filename in matrix_files:
 	if(filename == "result_serial_matrix.out"):
 		open_file = open(directory + "/" + filename, 'r')
@@ -21,6 +23,7 @@ for filename in matrix_files:
 		x_values = [int(2), int(4), int(8)]
 		y_values = [millisecs, millisecs, millisecs]
 		runtimes_dict['serial'] = (x_values, y_values)
+		print(runtimes_dict)
 	if(filename == "result_open_mp_matrix.out"):
 		open_file = open(directory + "/" + filename, 'r')
 		lines = open_file.readlines()
@@ -33,6 +36,7 @@ for filename in matrix_files:
 		x_values = [int(2), int(4), int(8)]
 		y_values = [millisecs_1, millisecs_2, millisecs_3]
 		runtimes_dict['open_mp'] = (x_values, y_values)
+		print(runtimes_dict)
 	if(filename == "result_mpi_matrix.out"):
 		open_file = open(directory + "/" + filename, 'r')
 		lines = open_file.readlines()
@@ -45,6 +49,7 @@ for filename in matrix_files:
 		x_values = [int(2), int(4), int(8)]
 		y_values = [millisecs_1, millisecs_2, millisecs_3]
 		runtimes_dict['mpi'] = (x_values, y_values)
+		print(runtimes_dict)
 
 red_patch = mpatches.Patch(color = 'red', label = 'Serial C Code')
 green_patch = mpatches.Patch(color = 'green', label = 'OpenMP Shared Memory Threads')
@@ -57,3 +62,4 @@ os.chdir("..")
 os.chdir("..")
 os.chdir("python")
 plt.savefig('runtimes_plot.png')
+
