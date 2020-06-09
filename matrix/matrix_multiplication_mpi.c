@@ -1,6 +1,6 @@
 /******************************************************************************
 * FILE: mm_mpi.c
-* DESCRIPTION:  
+* DESCRIPTION:
 *   Matrix Multiply - MPI implementation
 *   In this code, the master task distributes a matrix multiply
 *   operation to numtasks-1 worker tasks.
@@ -8,13 +8,14 @@
 #include "mpi.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/time.h>
 
-#define NRA 62                 /* number of rows in matrix A */
-#define NCA 15                 /* number of columns in matrix A */
-#define NCB 7                  /* number of columns in matrix B */
-#define MASTER 0               /* taskid of first task */
-#define FROM_MASTER 1          /* setting a message type */
-#define FROM_WORKER 2          /* setting a message type */
+#define NRA 500                 /* number of rows in matrix A */
+#define NCA 500                 /* number of columns in matrix A */
+#define NCB 300                 /* number of columns in matrix B */
+#define MASTER 0                /* taskid of first task */
+#define FROM_MASTER 1          	/* setting a message type */
+#define FROM_WORKER 2           /* setting a message type */
 
 int main (int argc, char *argv[])
 {
@@ -46,8 +47,11 @@ numworkers = numtasks-1;
 /**************************** master task ************************************/
    if (taskid == MASTER)
    {
-      printf("mpi_mm has started with %d tasks.\n",numtasks);
-      printf("Initializing arrays...\n");
+		  long start, end;
+		  struct timeval timecheck;
+		  gettimeofday(&timecheck, NULL);
+		  start = (long)timecheck.tv_sec * 1000 + (long)timecheck.tv_usec / 1000;
+      printf("mpi_mm has started with %d tasks.\n", numtasks);
       for (i=0; i<NRA; i++)
          for (j=0; j<NCA; j++)
             a[i][j]= i+j;
@@ -62,8 +66,7 @@ numworkers = numtasks-1;
       mtype = FROM_MASTER;
       for (dest=1; dest<=numworkers; dest++)
       {
-         rows = (dest <= extra) ? averow+1 : averow;   	
-         printf("Sending %d rows to task %d offset=%d\n",rows,dest,offset);
+         rows = (dest <= extra) ? averow+1 : averow;
          MPI_Send(&offset, 1, MPI_INT, dest, mtype, MPI_COMM_WORLD);
          MPI_Send(&rows, 1, MPI_INT, dest, mtype, MPI_COMM_WORLD);
          MPI_Send(&a[offset][0], rows*NCA, MPI_DOUBLE, dest, mtype,
@@ -79,22 +82,12 @@ numworkers = numtasks-1;
          source = i;
          MPI_Recv(&offset, 1, MPI_INT, source, mtype, MPI_COMM_WORLD, &status);
          MPI_Recv(&rows, 1, MPI_INT, source, mtype, MPI_COMM_WORLD, &status);
-         MPI_Recv(&c[offset][0], rows*NCB, MPI_DOUBLE, source, mtype, 
+         MPI_Recv(&c[offset][0], rows*NCB, MPI_DOUBLE, source, mtype,
                   MPI_COMM_WORLD, &status);
-         printf("Received results from task %d\n",source);
       }
-
-      /***Print results 
-      printf("******************************************************\n");
-      printf("Result Matrix:\n");
-      for (i=0; i<NRA; i++)
-      {
-         printf("\n"); 
-         for (j=0; j<NCB; j++) 
-            printf("%6.2f   ", c[i][j]);
-      }
-      printf("\n******************************************************\n");
-      printf ("Done.\n");***/
+			gettimeofday(&timecheck, NULL);
+			end = (long)timecheck.tv_sec * 1000 + (long)timecheck.tv_usec / 1000;
+			printf("%ld milliseconds elapsed\n", (end - start));
    }
 
 
