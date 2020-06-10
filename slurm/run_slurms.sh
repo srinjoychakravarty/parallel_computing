@@ -1,5 +1,7 @@
 #!/bin/bash
 
+srun --pty /bin/bash
+
 sbatch mpi_matrix.sbatch
 echo Submitted MPI matrix calculation...
 

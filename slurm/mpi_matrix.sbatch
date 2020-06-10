@@ -8,7 +8,6 @@
 #SBATCH --time=0:05:00
 
 cd /home/chakravarty.s/csye7374-chakravarty.s/homework1/parallel_computing/matrix
-srun --pty /bin/bash
 module load openmpi
 mpicc -o matrix_mpi matrix_multiplication_mpi.c
 mpirun --mca btl_base_warn_component_unused 0 -np 2 -oversubscribe matrix_mpi
