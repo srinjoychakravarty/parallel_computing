@@ -71,7 +71,7 @@ plt.xlabel('cores')
 os.chdir("..")
 os.chdir("..")
 os.chdir("python")
-plt.savefig('runtimes_plot.png')
+plt.savefig('line_chart_runtimes.png')
 
 print("Pushing Runtimes to a Comma Separated Value (.csv) File...\n")
 column_headers = ['Technology','NumCores', 'Runtime']
@@ -101,3 +101,4 @@ excel_file = pd.ExcelFile(ms_excel_path)
 sheet1_name = excel_file.sheet_names
 xls_dataframe = excel_file.parse(sheet1_name)
 print(xls_dataframe)
+
