@@ -6,6 +6,9 @@ import pandas as pd
 from pandas import DataFrame
 from pyexcel.cookbook import merge_all_to_a_book
 
+def prGreen(skk): print("\033[92m {}\033[00m" .format(skk)) 
+def prYellow(skk): print("\033[93m {}\033[00m" .format(skk)) 
+
 mpl.use('Agg')
 os.chdir("..")
 os.chdir("slurm/outputs")
@@ -17,7 +20,7 @@ for filename in os.listdir(directory):
 	if (filename.endswith('matrix.out')):
 		matrix_files.append(filename) 
 
-print("Calculating Matrix Multiplication Runtimes...\n")
+prGreen("Calculating Matrix Multiplication Runtimes...\n")
 for filename in matrix_files:
 	if(filename == "result_serial_matrix.out"):
 		open_file = open(directory + "/" + filename, 'r')
@@ -60,7 +63,7 @@ for filename in matrix_files:
 		y_values = [int(millisecs_1), int(millisecs_2), int(millisecs_3), int(millisecs_4)]
 		runtimes_dict['mpi'] = (x_values, y_values)
 
-print("Plotting Runtimes on Matplotlib Line Chart...\n")
+prGreen("Plotting Runtimes on Matplotlib Line Chart...\n")
 red_patch = mpatches.Patch(color = 'red', label = 'Serial C Code')
 green_patch = mpatches.Patch(color = 'green', label = 'OpenMP Shared Memory Threads')
 blue_patch = mpatches.Patch(color = 'blue', label = 'MPI Distributed Memory Tasks')
@@ -73,7 +76,7 @@ os.chdir("..")
 os.chdir("python")
 plt.savefig('line_chart_runtimes.png')
 
-print("Pushing Runtimes to a Comma Separated Value (.csv) File...\n")
+prGreen("Pushing Runtimes to a Comma Separated Value (.csv) File...\n")
 column_headers = ['Technology','NumCores', 'Runtime']
 csv_list = []
 for each_key in list(runtimes_dict.keys()):
@@ -85,7 +88,7 @@ for each_key in list(runtimes_dict.keys()):
 currentPath = os.getcwd()
 csv_file = currentPath + "/runtimes.csv"
 
-print("Converting CSV File to a Microsoft Excel Spreadsheet...\n")
+prGreen("Converting CSV File to a Microsoft Excel Spreadsheet...\n")
 with open(csv_file, 'w') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames = column_headers)
         writer.writeheader()
@@ -95,10 +98,9 @@ merge_all_to_a_book(glob.glob(csv_file), "runtimes.xlsx")
 
 os.remove(csv_file) 
 
-print("Importing Excel Results to Pandas Dataframe for Console Output...\n")
+prGreen("Importing Excel Results to Pandas Dataframe for Console Output...\n")
 ms_excel_path = ('runtimes.xlsx')
 excel_file = pd.ExcelFile(ms_excel_path)
 sheet1_name = excel_file.sheet_names
 xls_dataframe = excel_file.parse(sheet1_name)
-print(xls_dataframe)
-
+prYellow(xls_dataframe)
