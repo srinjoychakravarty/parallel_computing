@@ -85,6 +85,6 @@ with open(csv_file, 'w') as csvfile:
         writer.writeheader()
         for data in csv_list:
             writer.writerow(data)
-merge_all_to_a_book(glob.glob(csv_file), "parallel_runtimes.xlsx")
+merge_all_to_a_book(glob.glob(csv_file), "runtimes.xlsx")
 
 os.remove(csv_file) 

@@ -1,0 +1,8 @@
+subtask rank: 1
+subtask rank: 0
+ processor buffer => 2.500000 | 5.900000 | 6.500000 | 7.000000
+ processor buffer => 0.500000 | 4.100000 | 1.500000 | 3.400000
+subtask rank: 2
+ processor buffer => 8.200000 | 11.000000 | 9.800000 | 12.700000
+subtask rank: 3
+ processor buffer => 16.600000 | 13.300000 | 17.000000 | 0.200000
