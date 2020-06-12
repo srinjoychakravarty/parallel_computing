@@ -1,6 +1,9 @@
 #!/bin/bash
 
-srun --pty /bin/bash
+cd ../slurm
+
+echo Switching to Conda Virtual Environment
+source activate conda_env
 
 sbatch mpi_matrix.sbatch
 echo Submitted MPI matrix calculation...
@@ -20,8 +23,11 @@ echo Submitted MPI hello world code...
 sbatch hello_open_mp.sbatch
 echo Submitted OpenMP hello world code...
 
+echo Delaying sending Python script to Discover cluster by 8 seconds...
+sleep 8
+
 sbatch python3.sbatch
-echo Scheduled Python3 Runtime Plot in 4 seconds...
+echo Scheduled Python3 Runtime Plot to run in 13 seconds...
 
 while true
 do

@@ -10,6 +10,10 @@ OpenMP, MPI and SLURM on Northeastern's Discovery Cluster
 
 C Code built and run using the Code Blocks IDE
 
+Please switch to a Compute node
+srun --pty /bin/bash
+
+
 License
 ----
 
