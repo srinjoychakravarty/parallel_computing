@@ -1,10 +1,10 @@
 Starting matrix multiple example with 1 threads
-1443 milliseconds elapsed
+491 milliseconds elapsed
 Starting matrix multiple example with 2 threads
-1625 milliseconds elapsed
+465 milliseconds elapsed
 Starting matrix multiple example with 4 threads
-1646 milliseconds elapsed
+531 milliseconds elapsed
 Starting matrix multiple example with 8 threads
-810 milliseconds elapsed
+504 milliseconds elapsed
 Starting matrix multiple example with 12 threads
-609 milliseconds elapsed
+494 milliseconds elapsed
