@@ -26,7 +26,8 @@ C Code built and run using the Code Blocks IDE
     $ ./run_slurms.sh
     ```
     
-| Warning! :warning: Keep an eye on the batch jobs schedule. The python job should remain in queue and run last! |
+| Warning! :warning: 
+Keep an eye on the batch jobs schedule. The python job should remain in queue and run last! |
 | --- |
 
 4. Check your code results in the outputs folder specified below
