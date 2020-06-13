@@ -10,20 +10,36 @@ OpenMP, MPI and SLURM on Northeastern's Discovery Cluster
 
 C Code built and run using the Code Blocks IDE
 
-Please switch to a Compute node
-srun --pty /bin/bash
+### Prerequisites and Running on Discovery Cluster
 
-Switch to the bash folder and please install Anaconda Packages
-xxxxx
+1. Please switch to a Compute node 
+    ```sh
+    $ srun --pty /bin/bash
+    ```
+2. Switch to the bash folder and install the prerequisite Anaconda Packages
+    ```sh
+    $ ./conda_prereq.sh
+    ```
 
-The run the run_slurms script
-xxxx
+3. Run the run_slurms script
+    ```sh
+    $ ./run_slurms.sh
+    ```
+    
+| Warning! :warning: Keep an eye on the batch jobs schedule. The python job should remain in queue and run last! |
+| --- |
 
-Check your outputs in the folder
-xxxx
-
-Check to see if there were any errors in
-xxx
+4. Check your code results in the outputs folder specified below
+    ```sh
+    $ cd ../slurm/outputs
+    $ ll
+    ```
+    
+5. Check for any bugs logged in the errorrs folder specified below
+    ```sh
+    $ cd ../errors
+    $ ll
+    ```
 
 License
 ----
