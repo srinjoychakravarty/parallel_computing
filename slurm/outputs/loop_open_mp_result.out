@@ -1,0 +1,71 @@
+Initializing variables...
+Outer loop with Limit set to 64
+Initializing open mp parellelization...
+Inside master thread...
+Thread Count: 1
+Thread 0 starting...
+Thread 0: camel[0] = 0.000000
+Thread 0: camel[1] = 2.000000
+Thread 0: camel[2] = 4.000000
+Thread 0: camel[3] = 6.000000
+Thread 0: camel[4] = 8.000000
+Thread 0: camel[5] = 10.000000
+Thread 0: camel[6] = 12.000000
+Thread 0: camel[7] = 14.000000
+Thread 0: camel[8] = 16.000000
+Thread 0: camel[9] = 18.000000
+Thread 0: camel[10] = 20.000000
+Thread 0: camel[11] = 22.000000
+Thread 0: camel[12] = 24.000000
+Thread 0: camel[13] = 26.000000
+Thread 0: camel[14] = 28.000000
+Thread 0: camel[15] = 30.000000
+Thread 0: camel[16] = 32.000000
+Thread 0: camel[17] = 34.000000
+Thread 0: camel[18] = 36.000000
+Thread 0: camel[19] = 38.000000
+Thread 0: camel[20] = 40.000000
+Thread 0: camel[21] = 42.000000
+Thread 0: camel[22] = 44.000000
+Thread 0: camel[23] = 46.000000
+Thread 0: camel[24] = 48.000000
+Thread 0: camel[25] = 50.000000
+Thread 0: camel[26] = 52.000000
+Thread 0: camel[27] = 54.000000
+Thread 0: camel[28] = 56.000000
+Thread 0: camel[29] = 58.000000
+Thread 0: camel[30] = 60.000000
+Thread 0: camel[31] = 62.000000
+Thread 0: camel[32] = 64.000000
+Thread 0: camel[33] = 66.000000
+Thread 0: camel[34] = 68.000000
+Thread 0: camel[35] = 70.000000
+Thread 0: camel[36] = 72.000000
+Thread 0: camel[37] = 74.000000
+Thread 0: camel[38] = 76.000000
+Thread 0: camel[39] = 78.000000
+Thread 0: camel[40] = 80.000000
+Thread 0: camel[41] = 82.000000
+Thread 0: camel[42] = 84.000000
+Thread 0: camel[43] = 86.000000
+Thread 0: camel[44] = 88.000000
+Thread 0: camel[45] = 90.000000
+Thread 0: camel[46] = 92.000000
+Thread 0: camel[47] = 94.000000
+Thread 0: camel[48] = 96.000000
+Thread 0: camel[49] = 98.000000
+Thread 0: camel[50] = 100.000000
+Thread 0: camel[51] = 102.000000
+Thread 0: camel[52] = 104.000000
+Thread 0: camel[53] = 106.000000
+Thread 0: camel[54] = 108.000000
+Thread 0: camel[55] = 110.000000
+Thread 0: camel[56] = 112.000000
+Thread 0: camel[57] = 114.000000
+Thread 0: camel[58] = 116.000000
+Thread 0: camel[59] = 118.000000
+Thread 0: camel[60] = 120.000000
+Thread 0: camel[61] = 122.000000
+Thread 0: camel[62] = 124.000000
+Thread 0: camel[63] = 126.000000
+Exiting subthreads...End of open mp parallelization...

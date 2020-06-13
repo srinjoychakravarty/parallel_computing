@@ -1,0 +1,15 @@
+--------------------------------------------------------------------------
+[[41541,1],1]: A high-performance Open MPI point-to-point messaging module
+was unable to find any relevant network interfaces:
+
+Module: OpenFabrics (openib)
+  Host: c0275
+
+Another transport will be used instead, although this may result in
+lower performance.
+
+NOTE: You can disable this warning by setting the MCA parameter
+btl_base_warn_component_unused to 0.
+--------------------------------------------------------------------------
+[c0275:16557] 7 more processes have sent help message help-mpi-btl-base.txt / btl:no-nics
+[c0275:16557] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages

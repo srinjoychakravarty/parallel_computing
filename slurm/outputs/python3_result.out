@@ -9,17 +9,17 @@
 [92m Importing Excel Results to Pandas Dataframe for Console Output...
 [00m
 [93m {'runtimes.csv':    Technology  NumCores  Runtime
-0      serial         1      855
-1      serial         2      855
-2      serial         4      855
-3      serial         8      855
-4      serial        12      855
-5     open_mp         1      491
-6     open_mp         2      465
-7     open_mp         4      531
-8     open_mp         8      504
-9     open_mp        12      494
-10        mpi         2      679
-11        mpi         4      471
-12        mpi         8      376
-13        mpi        12      413}[00m
+0      serial         1      367
+1      serial         2      367
+2      serial         4      367
+3      serial         8      367
+4      serial        12      367
+5     open_mp         1      872
+6     open_mp         2      899
+7     open_mp         4      905
+8     open_mp         8      892
+9     open_mp        12      907
+10        mpi         2     1102
+11        mpi         4      749
+12        mpi         8      676
+13        mpi        12      681}[00m
