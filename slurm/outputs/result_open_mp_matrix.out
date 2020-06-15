@@ -8,3 +8,13 @@ Starting matrix multiple example with 8 threads
 892 milliseconds elapsed
 Starting matrix multiple example with 12 threads
 907 milliseconds elapsed
+Starting matrix multiple example with 1 threads
+439 milliseconds elapsed
+Starting matrix multiple example with 2 threads
+416 milliseconds elapsed
+Starting matrix multiple example with 4 threads
+419 milliseconds elapsed
+Starting matrix multiple example with 8 threads
+418 milliseconds elapsed
+Starting matrix multiple example with 12 threads
+421 milliseconds elapsed
